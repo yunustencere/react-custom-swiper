@@ -3,8 +3,7 @@ import { SwiperProvider } from './context/useSwiperData'
 import Navbar from './navbar/Navbar'
 import Slide from './slide/Slide'
 
-const ReactCustomSwiper = ({images}) => {
-
+const ReactCustomSwiper = ({ images }) => {
 
   return (
     <>

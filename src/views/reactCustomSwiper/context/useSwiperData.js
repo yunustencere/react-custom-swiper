@@ -27,20 +27,24 @@ export const SwiperProvider = ({ images, children }) => {
   //Slide Into Image With Image DOM Id
   const slideToImageWithDomId = (imageDomId) => {
     document.getElementById(imageDomId).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+
     dispatch({
       type: "updateCurrentIndex",
       newCurrentIndex: findIndexWithId(imageDomId)
     })
   }
+  const slideToImageWithIndex = (index) => {
+    slideToImageWithDomId(`image_${index + 1}`)
+  }
 
   const slideToNextImage = () => {
     const nextElementId = getNextElementId();
-    slideToImageWithDomId(`image_${nextElementId}`)
+    slideToImageWithIndex(nextElementId - 1)
   }
 
   const slideToPreviousImage = () => {
     const previousElementId = getPreviousElementId();
-    slideToImageWithDomId(`image_${previousElementId}`)
+    slideToImageWithIndex(previousElementId - 1)
   }
 
 
@@ -70,7 +74,8 @@ export const SwiperProvider = ({ images, children }) => {
         swiperData,
         slideToNextImage,
         slideToPreviousImage,
-        slideToImageWithDomId
+        slideToImageWithDomId,
+        slideToImageWithIndex
       }}
     >
       {children}
