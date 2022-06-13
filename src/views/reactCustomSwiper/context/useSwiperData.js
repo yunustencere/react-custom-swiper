@@ -8,29 +8,20 @@ let initialState = {
 
 export const swiperContext = createContext();
 
-export const SwiperProvider = ({ children }) => {
+export const SwiperProvider = ({ images, children }) => {
   const [swiperData, dispatch] = useReducer(swiperReducer, initialState);
 
   useEffect(() => {
-    fetchSwiperData();
-  }, []);
-  useEffect(() => {
-    console.log("CURRENT INDEX:" + swiperData.currentIndex)
-  }, [swiperData.currentIndex]);
+    console.log(images)
+    setSwiperData();
+  }, [images]);
 
-
-  //FETCH
-  const fetchSwiperData = () => {
-    const DUMMY_IMAGES_URL = `https://jsonplaceholder.typicode.com/photos`;
-    fetch(DUMMY_IMAGES_URL)
-      .then(response => response.json())
-      .then(data => dispatch({
-        type: "setSwiperData",
-        newSwiperData: data
-      }))
-      .catch((err) => {
-        console.log(err)
-      });
+  //set
+  const setSwiperData = () => {
+    dispatch({
+      type: "setSwiperData",
+      newSwiperData: images ?? []
+    })
   };
 
   //Slide Into Image With Image DOM Id

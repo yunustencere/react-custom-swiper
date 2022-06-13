@@ -1,22 +1,25 @@
 import React from 'react'
+import { SwiperProvider } from './context/useSwiperData'
 import Navbar from './navbar/Navbar'
 import Slide from './slide/Slide'
 
-const ReactCustomSwiper = () => {  
+const ReactCustomSwiper = ({images}) => {
 
 
   return (
     <>
-      <div className="row">
-        <div className="col-sm-12">
-          <Navbar/>
+      <SwiperProvider images={images}>
+        <div className="row">
+          <div className="col-sm-12">
+            <Navbar />
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-12">
-          <Slide/>
+        <div className="row">
+          <div className="col-sm-12">
+            <Slide />
+          </div>
         </div>
-      </div>
+      </SwiperProvider>
     </>
   )
 }

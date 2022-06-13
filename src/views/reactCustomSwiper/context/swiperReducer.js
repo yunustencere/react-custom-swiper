@@ -4,7 +4,7 @@ export const swiperReducer = (state, action) => {
       return {
         ...state,
         images: [
-          ...action.newSwiperData.slice(0, 6)
+          ...action.newSwiperData
         ]
       }
     case "updateCurrentIndex":
