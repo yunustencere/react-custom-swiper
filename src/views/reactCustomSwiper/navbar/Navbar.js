@@ -6,7 +6,6 @@ import SingleNavbarElement from './singleNavbarElement/SingleNavbarElement'
 const Navbar = () => {
 
   const { swiperData } = useContext(swiperContext);
-  console.log(swiperData)
 
   return (
     <div className="row navbar">
