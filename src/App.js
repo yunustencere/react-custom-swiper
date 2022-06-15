@@ -14,7 +14,7 @@ function App() {
     fetch(DUMMY_IMAGES_URL)
       .then(response => response.json())
       .then(data => {
-        setImages(data.slice(0, 6))
+        setImages(data.slice(0, 2))
       })
       .catch((err) => {
         console.log(err)

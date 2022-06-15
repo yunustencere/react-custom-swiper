@@ -1,7 +1,20 @@
-.slide-images{
+@import '/src/styles/Colors.scss';
+.slide-images {
     white-space: nowrap;
-    width:600px;
+    width: 600px;
     // overflow: auto;
     // overflow-y: hidden;
     overflow: hidden;
+}
+
+.arrow {
+    width: 60px;
+    height: 60px;
+    background-color: $color-main-light-gray;
+    border-radius: 50%;
+    padding: 15px;
+    border: 2px solid gray;
+}
+.arrow:hover{
+    background-color: $color-main-orange;
 }
